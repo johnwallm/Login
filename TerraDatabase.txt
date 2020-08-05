@@ -1,0 +1,77 @@
+USE [Tera]
+GO
+
+/****** Object:  Table [dbo].[UserRole]    Script Date: 6/8/2020 2:49:15 am ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[UserRole](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NOT NULL,
+	[Role] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_UserRole] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[UserRole]  WITH CHECK ADD  CONSTRAINT [FK_UserRole_UserEx] FOREIGN KEY([UserID])
+REFERENCES [dbo].[UserEx] ([ID])
+GO
+
+ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK_UserRole_UserEx]
+GO
+
+
+USE [Tera]
+GO
+
+/****** Object:  Table [dbo].[UserEx]    Script Date: 6/8/2020 2:49:06 am ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[UserEx](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](50) NULL,
+	[Password] [varchar](50) NULL,
+ CONSTRAINT [PK_UserEx] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+USE [Tera]
+GO
+
+/****** Object:  Table [dbo].[Registration]    Script Date: 6/8/2020 2:48:53 am ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Registration](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[First Name] [nvarchar](50) NULL,
+	[Middle Initial] [nvarchar](50) NULL,
+	[Last Name] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Username] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Registration] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
