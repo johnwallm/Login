@@ -38,7 +38,7 @@ namespace Login.Controllers
         }
 
         // GET: Registrations/Create
-        [Authorize(Roles = "Admin, User")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -49,7 +49,7 @@ namespace Login.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin, User")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ID,First_Name,Middle_Initial,Last_Name,Email,Username,Password")] Registration registration)
         {
             if (ModelState.IsValid)
@@ -122,11 +122,14 @@ namespace Login.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        [AllowAnonymous]
+
+        [Authorize(Roles = "Admin")]
         public ActionResult About()
         {
             return View();
         }
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
 
         protected override void Dispose(bool disposing)
         {

@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace Login.Controllers
 {
-    [AllowAnonymous]
+    
     public class AccountController : Controller
     {
         // GET: Account

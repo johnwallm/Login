@@ -45,7 +45,6 @@ namespace Login
                               select role.Role).ToArray();
                 return result;
             }
-            throw new NotImplementedException();
         }
 
         public override string[] GetUsersInRole(string username)
