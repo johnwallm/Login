@@ -24,37 +24,25 @@
 
                     <!--Dito nageedit kung ano makikita sa admin at user  -->
 
-                        @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
                         {
-                            if (User.IsInRole("Admin"))
-                            {
-                                <li>@Html.ActionLink("About", "About", "Registrations")</li>
-                                <li>@Html.ActionLink("Create", "Create", "Registrations")</li>
-                                <li><a>Log in as @User.Identity.Name</a></li>
-                                <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
 
-                            }
-
-
+                            <li>@Html.ActionLink("Create", "Create", "Registrations")</li>
+                            <li><a>Log in as @User.Identity.Name</a></li>
                         }
 
-                        @if (User.Identity.IsAuthenticated)
+                        else if (User.IsInRole("User"))
                         {
-                            if (User.IsInRole("User"))
-                            {
-                                <li><a>User as @User.Identity.Name </a></li>
-                                <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
-                            }
 
 
+                        <li>@Html.ActionLink("About", "About", "Registrations")</li>
                         }
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    }
 
-
-
-
-
-
-                    </ul>
+                </ul>
                 </div>
             </div>
         </div>

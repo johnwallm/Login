@@ -8,10 +8,11 @@ using System.Web.Security;
 
 namespace Login.Controllers
 {
-    
+  
     public class AccountController : Controller
     {
         // GET: Account
+        
         public ActionResult Login()
         {
             return View();
@@ -20,6 +21,8 @@ namespace Login.Controllers
         [HttpPost]
         public ActionResult Login(Models.Membership model)
         {
+
+
             using (var context = new TeraEntities())
             {
                 bool isValid = context.UserEx.Any(x => x.Username == model.Username && x.Password == model.Password);

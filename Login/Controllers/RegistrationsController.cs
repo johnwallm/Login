@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Login;
+using Login.Filter;
 
 namespace Login.Controllers
 {
@@ -16,6 +17,7 @@ namespace Login.Controllers
         private TeraEntities db = new TeraEntities();
 
         // GET: Registrations
+        
         
         public ActionResult Index()
         {
@@ -38,7 +40,8 @@ namespace Login.Controllers
         }
 
         // GET: Registrations/Create
-        [Authorize(Roles = "Admin")]
+        [UserAuthentication]
+        [Authorize(Roles = "User")]
         public ActionResult Create()
         {
             return View();
@@ -49,7 +52,7 @@ namespace Login.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "User")]
         public ActionResult Create([Bind(Include = "ID,First_Name,Middle_Initial,Last_Name,Email,Username,Password")] Registration registration)
         {
             if (ModelState.IsValid)
@@ -94,6 +97,8 @@ namespace Login.Controllers
             }
             return View(registration);
         }
+        
+    
 
         // GET: Registrations/Delete/5
         [Authorize(Roles = "Admin")]
@@ -123,13 +128,12 @@ namespace Login.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "Admin")]
+        [UserAuthentication]
         public ActionResult About()
         {
             return View();
         }
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        
 
         protected override void Dispose(bool disposing)
         {
