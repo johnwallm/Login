@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Login
+namespace Login.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TeraEntities : DbContext
+    public partial class TeraEntities1 : DbContext
     {
-        public TeraEntities()
-            : base("name=TeraEntities")
+        public TeraEntities1()
+            : base("name=TeraEntities1")
         {
         }
     
@@ -25,6 +25,6 @@ namespace Login
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UserInformation> UserInformation { get; set; }
+        public virtual DbSet<UserInformation> UserInformations { get; set; }
     }
 }

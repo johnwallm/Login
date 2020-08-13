@@ -24,23 +24,7 @@
 
                     <!--Dito nageedit kung ano makikita sa admin at user  -->
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        if (User.IsInRole("Admin"))
-                        {
-
-                            <li>@Html.ActionLink("Create", "Create", "Registrations")</li>
-                            <li><a>Log in as @User.Identity.Name</a></li>
-                        }
-
-                        else if (User.IsInRole("User"))
-                        {
-
-
-                        <li>@Html.ActionLink("About", "About", "Registrations")</li>
-                        }
-                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
-                    }
+                    
 
                 </ul>
                 </div>

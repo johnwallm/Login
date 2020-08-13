@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="TeraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="TeraEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="UserInformation" EntityType="TeraModel.UserInformation" />
-  </EntityContainer>
+<Schema Namespace="TeraModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="UserInformation">
     <Key>
       <PropertyRef Name="UserInformationID" />
     </Key>
     <Property Name="UserInformationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserTypeID" Type="Int32" Nullable="false" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="GivenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MaidenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="FamilyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityContainer Name="TeraEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
+  </EntityContainer>
 </Schema>

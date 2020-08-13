@@ -12,19 +12,16 @@ namespace Login
     using System;
     using System.Collections.Generic;
     
-    public partial class UserEx
+    public partial class UserInformation
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserEx()
-        {
-            this.UserRole = new HashSet<UserRole>();
-        }
-    
-        public int ID { get; set; }
+        public int UserInformationID { get; set; }
+        public int UserTypeID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRole> UserRole { get; set; }
+        public string GivenName { get; set; }
+        public string MaidenName { get; set; }
+        public string FamilyName { get; set; }
+        public string Email { get; set; }
+        public string Notes { get; set; }
     }
 }

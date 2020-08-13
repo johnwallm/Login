@@ -19,45 +19,64 @@ namespace Login.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Models.Membership model)
+        public ActionResult Authorize(UserInformation user)
         {
-
-
-            using (var context = new TeraEntities())
+            using (TeraEntities1 db = new TeraEntities1())
             {
-                bool isValid = context.UserEx.Any(x => x.Username == model.Username && x.Password == model.Password);
-                if (isValid)
+                var userDetail = db.UserInformations.Where(x => x.Username == user.Username && x.Password == user.Password).FirstOrDefault();
+
+
+
+
+                if (userDetail == null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, false);
-                    return RedirectToAction("Index", "Registrations");
+                    //user.LoginErrorMessage = "Invalid Username or Password";
+                    return View("Login", user);
                 }
-                ModelState.AddModelError("", "Invalid Username or Password");
-                return View();
+
+                else
+
+                {
+                    var UserInformationID = userDetail.UserInformationID;
+                    var UserTypeID = userDetail.UserTypeID;
+                    var Password = userDetail.Password;
+                    var Username = userDetail.Username;
+
+                    
+
+                    Session["UserInformationID"] = UserTypeID;
+                    Session["UserName"] = Username;
+                    Session["UserTypeID"] = UserTypeID;
+                    Session["Password"] = Password;
+
+                    if (UserTypeID == 1)
+                    {
+
+                        return RedirectToAction("AdminH", "Account");
+                    }
+
+                    else if (UserTypeID == 2)
+                    {
+
+                        return RedirectToAction("UserPage", "Entities");
+                    }
+
+                    else
+                    {
+                        return RedirectToAction("Login", "Entities");
+                    }
+                }
+
             }
 
-            
+
         }
 
-        public ActionResult Register()
+        public ActionResult LogOut()
         {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Register(UserEx model)
-        {   
-            using (var context = new TeraEntities())
-            {
-                context.UserEx.Add(model);
-                context.SaveChanges();
-            }
-            return RedirectToAction("Login");
-        }
-
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            int UserInformationID = (int)Session["UserID"];
+            Session.Abandon();
+            return RedirectToAction("Login", "Entities");
         }
     }
 }
