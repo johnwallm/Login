@@ -58,12 +58,12 @@ namespace Login.Controllers
                     else if (UserTypeID == 2)
                     {
 
-                        return RedirectToAction("UserPage", "Entities");
+                        return RedirectToAction("UserPage", "Account");
                     }
 
                     else
                     {
-                        return RedirectToAction("Login", "Entities");
+                        return RedirectToAction("Login", "Account");
                     }
                 }
 
@@ -74,9 +74,20 @@ namespace Login.Controllers
 
         public ActionResult LogOut()
         {
-            int UserInformationID = (int)Session["UserID"];
+            int UserInformationID = (int)Session["UserInformationID"];
             Session.Abandon();
-            return RedirectToAction("Login", "Entities");
+            return RedirectToAction("Login", "Account");
+        }
+
+        public ActionResult Administrator()
+        {
+            return View();
+        }
+
+        public ActionResult UserPage()
+        {
+            return View();
         }
     }
+
 }

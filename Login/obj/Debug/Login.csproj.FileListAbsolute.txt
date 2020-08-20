@@ -50,4 +50,3 @@ C:\Users\John Bendita\source\repos\Login\Login\obj\Debug\Login.csproj.CoreCompil
 C:\Users\John Bendita\source\repos\Login\Login\obj\Debug\Login.csproj.CopyComplete
 C:\Users\John Bendita\source\repos\Login\Login\obj\Debug\Login.dll
 C:\Users\John Bendita\source\repos\Login\Login\obj\Debug\Login.pdb
-C:\Users\John Bendita\source\repos\Login\Login\obj\Debug\Login.csprojAssemblyReference.cache
