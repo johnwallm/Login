@@ -106,10 +106,16 @@ namespace Login.Controllers
             {
                 model.BranImage = new byte[image1.ContentLength];
                 image1.InputStream.Read(model.BranImage, 0, image1.ContentLength);
+
+               
+                db.SaveChanges();
+            }
+            else
+            {
+                Response.Write("<script>alert('You did not choose any image(s).'</script>");
             }
 
             db.Brands.Add(model);
-            db.SaveChanges();
             return View(model);
         }
 

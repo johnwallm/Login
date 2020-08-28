@@ -18,6 +18,8 @@ namespace Login
     public partial class Brand : ValidationAttribute
     {
         public int BranID { get; set; }
+
+        
         public byte[] BranImage { get; set; }
     }
 }
