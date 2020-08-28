@@ -96,6 +96,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Brand.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Brand.edmx</DependentUpon>
+      <LastGenOutput>Brand.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Brand.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Brand.edmx</DependentUpon>
+      <LastGenOutput>Brand1.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -133,6 +143,13 @@
     <Content Include="Models\LoginModel.edmx.diagram">
       <DependentUpon>LoginModel.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Brand.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Brand.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Brand.edmx.diagram">
+      <DependentUpon>Brand.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -145,6 +162,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Brand.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brand.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brand.cs">
+      <DependentUpon>Brand.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brand.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brand.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Brand1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brand.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Filter\UserAuthentication.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,6 +250,8 @@
     <Content Include="UserLayout.cshtml" />
     <Content Include="Views\Account\Administrator.cshtml" />
     <Content Include="Views\Account\UserPage.cshtml" />
+    <Content Include="Views\Account\AddImage.cshtml" />
+    <Content Include="Views\Account\GetImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

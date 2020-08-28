@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CapstoneDemoModelStoreContainer" CdmEntityContainer="CapstoneDemoEntities">
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="CapstoneDemoModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="BranID" ColumnName="BranID" />
+          <ScalarProperty Name="BranImage" ColumnName="BranImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

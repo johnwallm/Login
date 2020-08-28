@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Login.Brand>
+
+@{
+    ViewBag.Title = "GetImage";
+}
+
+<h2>GetImage</h2>
+<table>
+    <tr>
+        @foreach (var item in Model)
+        {
+            <td>
+                @{ 
+                    var base64 = Convert.ToBase64String(item.BranImage);
+                    var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                }
+                <img src ='@imgsrc' style="max-width:100px;max-height:100px"/>
+            </td>
+        }
+    </tr>
+</table>
+
