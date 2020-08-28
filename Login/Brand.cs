@@ -11,10 +11,15 @@ namespace Login
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+
     
-    public partial class Brand
+    public partial class Brand : ValidationAttribute
     {
         public int BranID { get; set; }
         public byte[] BranImage { get; set; }
     }
 }
+   
+
